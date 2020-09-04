@@ -62,22 +62,11 @@ public class UserCRUDTest {
         String userName = "Ivan";
         String userJob = "Manager";
 
-        new UserRest().getUserInfo(userId)
+        new UserRest().putUserInfo(userId, userJob, userName)
                 .then()
                 .log().all()
                 .statusCode(200)
-                .body("data.email", equalTo("rachel.howell@reqres.in"))
-                .body("data.first_name", equalTo("Rachel"))
-                .body("data.last_name", equalTo("Howell"));
-
-        new UserRest().putUserInfo(userId, userJob, userName)
-                .then()
-                .statusCode(200);
-
-        new UserRest().getUserInfo(userId)
-                .then()
-                .log().all()
-                .statusCode(200);
+                .body("updatedAt", anything());
     }
 
 }
