@@ -5,7 +5,7 @@
 
     <test name="E2E UI tests" parallel="methods" thread-count="3">
         <classes>
-            <class name="LoginTest"/>
+            <class name="ui.LoginTest"/>
         </classes>
     </test>
 

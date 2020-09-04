@@ -1,6 +1,8 @@
+package ui;
+
 import io.qameta.allure.*;
 import org.testng.annotations.Test;
-import properties.PropertyHolder;
+import utils.properties.PropertyHolder;
 import web.pages.LoginPage;
 
 import static utils.Groups.smoke;

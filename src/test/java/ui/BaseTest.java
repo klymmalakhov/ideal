@@ -1,5 +1,7 @@
-import drivers.Drivers;
-import listener.AllureReportListener;
+package ui;
+
+import utils.drivers.Drivers;
+import utils.listener.AllureReportListener;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;

@@ -1,14 +1,12 @@
-package drivers;
+package utils.drivers;
 
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import properties.PropertyHolder;
+import utils.properties.PropertyHolder;
 
 import java.util.concurrent.TimeUnit;
-
-import static drivers.Drivers.*;
 
 
 class DriverFactory {
@@ -18,13 +16,13 @@ class DriverFactory {
     static WebDriver create(String browserName) {
         WebDriver driver;
         switch (browserName.toLowerCase()) {
-            case CHROME_DRIVER:
+            case Drivers.CHROME_DRIVER:
                 driver = getChromeDriver();
                 break;
-            case FIREFOX_DRIVER:
+            case Drivers.FIREFOX_DRIVER:
                 driver = getFirefoxDriver();
                 break;
-            case IE_DRIVER:
+            case Drivers.IE_DRIVER:
                 driver = getIEDriver();
                 break;
             default:
@@ -41,17 +39,17 @@ class DriverFactory {
     }
 
     private static WebDriver getIEDriver() {
-        System.setProperty("webdriver.ie.driver", getPathToDriver(IE_DRIVER));
+        System.setProperty("webdriver.ie.driver", getPathToDriver(Drivers.IE_DRIVER));
         return new org.openqa.selenium.ie.InternetExplorerDriver();
     }
 
     private static WebDriver getFirefoxDriver() {
-        System.setProperty("webdriver.gecko.driver", getPathToDriver(FIREFOX_DRIVER));
+        System.setProperty("webdriver.gecko.driver", getPathToDriver(Drivers.FIREFOX_DRIVER));
         return new FirefoxDriver();
     }
 
     private static WebDriver getChromeDriver() {
-        System.setProperty("webdriver.chrome.driver", getPathToDriver(CHROME_DRIVER));
+        System.setProperty("webdriver.chrome.driver", getPathToDriver(Drivers.CHROME_DRIVER));
         return new ChromeDriver();
     }
 }

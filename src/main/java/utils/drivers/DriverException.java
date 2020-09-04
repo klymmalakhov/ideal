@@ -1,4 +1,4 @@
-package drivers;
+package utils.drivers;
 
 class DriverException extends RuntimeException {
     DriverException(String message) {
