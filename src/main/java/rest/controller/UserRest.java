@@ -72,4 +72,15 @@ public class UserRest {
                 .then()
                 .extract().response();
     }
+
+    @Step("DELETE " + USERS_INFO + " - Delete user by id {userId}")
+    public Response deleteUser(String userId) {
+        return given()
+                .spec(reqSpec)
+                .when()
+                .pathParam("userId", userId)
+                .delete(USERS_INFO)
+                .then()
+                .extract().response();
+    }
 }

@@ -64,9 +64,21 @@ public class UserCRUDTest {
 
         new UserRest().putUserInfo(userId, userJob, userName)
                 .then()
-                .log().all()
                 .statusCode(200)
                 .body("updatedAt", anything());
+    }
+
+    @Story("User CRUD")
+    @Description("User CRUD")
+    @Link(name = "allure", type = "issue")
+    @Test(description = "Check possibility to delete an user", groups = {regression})
+    public void checkDeletingUserInfoTest() {
+
+        String userId = "12";
+
+        new UserRest().deleteUser(userId)
+                .then()
+                .statusCode(204);
     }
 
 }
