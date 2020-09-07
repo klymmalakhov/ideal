@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import utils.properties.PropertyHolder;
 import web.BasePage;
 
 
@@ -16,6 +17,8 @@ public class IndexPage extends BasePage {
     }
 
     private final Logger log = LoggerFactory.getLogger(IndexPage.class);
+
+    private final String logoutLink = PropertyHolder.getPropValue("URL_logout");
 
     @FindBy(xpath = "//a[@class='account']")
     private WebElement MENU_USER_NAME;
@@ -34,6 +37,12 @@ public class IndexPage extends BasePage {
     @Step("Click on the logout button")
     public LoginPage logout(){
         this.MENU_USER_LOGOUT_BUTTON.click();
+        return new LoginPage(driver);
+    }
+
+    @Step("Use the link logout")
+    public LoginPage logoutByLink(){
+        driver.get(logoutLink);
         return new LoginPage(driver);
     }
 }

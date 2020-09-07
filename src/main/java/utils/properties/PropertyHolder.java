@@ -11,6 +11,7 @@ public class PropertyHolder {
         InputStream inputStream = PropertyHolder.class.getClassLoader().getResourceAsStream(namePropertyFile);
         java.util.Properties prop = new java.util.Properties();
         try {
+            assert inputStream != null;
             prop.load(inputStream);
             return prop.getProperty(propertyName);
         } catch (IOException e) {

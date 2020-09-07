@@ -8,8 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
@@ -39,19 +37,6 @@ public class BasePage {
             default:
                 throw new IllegalStateException("Unexpected value: " + condition);
         }
-    }
-
-    protected void wait(int second) {
-        try {
-            Thread.sleep( (1000 * second) );
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    protected void switchToNextTab() {
-        ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles());
-        driver.switchTo().window(tabs2.get(1));
     }
 
 }

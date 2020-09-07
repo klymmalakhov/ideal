@@ -7,10 +7,6 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import rest.models.User;
 
-
-import java.io.IOException;
-import java.security.PrivateKey;
-
 import static io.restassured.RestAssured.given;
 import static utils.properties.PropertyHolder.getPropValue;
 
@@ -21,7 +17,7 @@ public class UserRest {
     private final String USERS = "/api/users";
     private final String USERS_INFO = "/api/users/{userId}";
 
-    private RequestSpecification reqSpec = new RequestSpecBuilder()
+    private final RequestSpecification reqSpec = new RequestSpecBuilder()
             .setBaseUri(getPropValue("URL_reqres"))
             .build();
 

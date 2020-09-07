@@ -20,12 +20,12 @@ public class LoginTest extends BaseTest {
      */
 
 
-    @Story("As an User I'm able to login and using UI logout")
-    @Description("Description")
+    @Story("As an User I'm able to login and logout")
+    @Description("As an User I'm able to login and logout")
     @Severity(SeverityLevel.BLOCKER)
     @Link(name = "allure", type = "issue")
     @Test(description = "Check possibility to login and using UI logout", groups = {smoke})
-    public void loginTest() {
+    public void loginLogoutTest() {
 
         driver.get(PropertyHolder.getPropValue("URL_Login"));
         LoginPage loginPage = new LoginPage(driver);
@@ -38,4 +38,21 @@ public class LoginTest extends BaseTest {
 
     }
 
+    @Story("As an User I'm able to login and logout")
+    @Description("As an User I'm able to login and logout")
+    @Severity(SeverityLevel.BLOCKER)
+    @Link(name = "allure", type = "issue")
+    @Test(description = "Check possibility to login and using link logout", groups = {smoke})
+    public void loginLogoutByLinkTest() {
+
+        driver.get(PropertyHolder.getPropValue("URL_Login"));
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage
+                .validateThatUserSignedOut()
+                .loginViaUI()
+                .validateThatUserSignedIn()
+                .logoutByLink()
+                .validateThatUserSignedOut();
+
+    }
 }
