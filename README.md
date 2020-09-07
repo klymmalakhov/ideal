@@ -35,10 +35,15 @@
 
 ### How to run:
 ```sh
-- mvn clean test -Dbrowser=chrome
-A 'browser' variable could be equal ['chrome', 'firefox' or empty]
+mvn clean test -Dbrowser=chrome -Dparallel=classes -DthreadCount=10
+```
+- -Dbrowser=chrome - variable could be equal ['chrome', 'firefox' or empty]
+- -Dparallel=classes - parallel tests by java classes
+- -DthreadCount=10 - count of threads
 
-- mvn io.qameta.allure:allure-maven:serve
+HOW TO GET REPORT
+```sh
+mvn io.qameta.allure:allure-maven:serve
 ```
 
 

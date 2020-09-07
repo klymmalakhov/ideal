@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name ="Regression testing" parallel="classes" thread-count="10">
+
+    <test name="UI">
+        <classes>
+            <class name="ui.LoginTest"/>
+        </classes>
+    </test>
+
+    <test name="API" parallel = "methods" thread-count = "3">
+        <classes>
+            <class name="api.UserCRUDTest"/>
+        </classes>
+    </test>
+
+</suite>
